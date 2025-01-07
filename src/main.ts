@@ -1,7 +1,5 @@
 import { App, MarkdownView, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import {SlackBlock, SlackFormat} from "./types";
-const slackifyMarkdown = require('slackify-markdown');
-
+import Converter from './converter';
 interface MdToSlackSettings {
 	slackBlockKitBuilderURL: string;
 }
@@ -16,10 +14,11 @@ export default class MdToSlack extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.addRibbonIcon('slack', 'MdToSlack', (evt: MouseEvent) => {
+		this.addRibbonIcon('slack', 'MdToSlack', async (evt: MouseEvent) => {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);
 			if (view) {
-				open(convertMarkdownToSlack(this.settings, view.getDisplayText(), view.getViewData()))
+				const url = await Converter.convertMarkdownToSlack(this.settings, view.getDisplayText(), view.getViewData())
+				open(url)
 			}
 		});
 
@@ -64,43 +63,4 @@ class MdToSlackSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 				}));
 	}
-}
-
-function convertMarkdownToSlack(settings: MdToSlackSettings, title: string, markdown : string) : string {
-	const result = slackifyMarkdown(markdown);
-
-	// Replace any quotes with nothing and carridge returns with a return string equivalent
-	const resultNoQuotes = result.replace(/['"]+/g, '')
-	const resultNoReturns = resultNoQuotes.replace(/['\n]+/g, '\n')
-
-	// Split the string into 3000 character chunks, the limit for slack md sections
-	var splitResult = resultNoReturns.match(/[\s\S]{1,3000}/g) || [];
-
-	let slackFormat : SlackFormat = {
-		"blocks": []
-	}
-
-	const header : SlackBlock = {
-		"type": "header",
-		"text": {
-			"type": "plain_text",
-			"text": title
-		}
-	}
-
-	slackFormat.blocks.push(header)
-
-	splitResult.forEach((element : string) => {
-		const section =   {
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": element
-			}
-		}
-
-		slackFormat.blocks.push(section)
-	})
-
-	return `${settings.slackBlockKitBuilderURL}#${encodeURIComponent(JSON.stringify(slackFormat))}`
 }
