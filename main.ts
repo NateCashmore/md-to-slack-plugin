@@ -1,4 +1,5 @@
 import { App, MarkdownView, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import {SlackBlock, SlackFormat} from "./types";
 const slackifyMarkdown = require('slackify-markdown');
 
 interface MdToSlackSettings {
@@ -100,6 +101,6 @@ function convertMarkdownToSlack(settings: MdToSlackSettings, title: string, mark
 
 		slackFormat.blocks.push(section)
 	})
-	
+
 	return `${settings.slackBlockKitBuilderURL}#${encodeURIComponent(JSON.stringify(slackFormat))}`
 }

@@ -1,4 +1,4 @@
-interface SlackBlock {
+export type SlackBlock = {
 	type: string;
 	text: {
 		type: string;
@@ -6,6 +6,8 @@ interface SlackBlock {
 	};
 }
 
-interface SlackFormat {
+export type SlackFormat = {
 	blocks: SlackBlock[];
 }
+
+
