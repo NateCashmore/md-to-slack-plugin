@@ -4,8 +4,8 @@
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Converts markdown messages to Slack Block Kit messages",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"author": "Nathan Cashmore",
+	"authorUrl": "https://www.staticvoid.co.uk/",
+	"fundingUrl": "https://buymeacoffee.com/nathan.cashmore",
 	"isDesktopOnly": false
 }
