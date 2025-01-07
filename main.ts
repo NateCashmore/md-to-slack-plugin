@@ -54,7 +54,7 @@ class MdToSlackSettingTab extends PluginSettingTab {
 		new Setting(containerEl)
 			.setName('Slack Block Kit Builder URL')
 			.setDesc('URL associated with Slack Block Kit Builder.  Please not you MUST goto https://app.slack.com/block-kit-builder and' +
-				'update this value with the generated ID ... e.g. https://app.slack.com/block-kit-builder/XXXXXXXX where XXXXXXXX is the ID.  ' +
+				' update this value with the generated ID ... e.g. https://app.slack.com/block-kit-builder/XXXXXXXX where XXXXXXXX is the ID.  ' +
 				'Slack will automatically generate this ID for you when you goto that URL.')
 			.addText(text => text
 				.setPlaceholder('https://app.slack.com/block-kit-builder/XXXXXXXX')
