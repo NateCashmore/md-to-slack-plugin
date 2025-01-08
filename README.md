@@ -2,7 +2,10 @@
 This is a plugin for Obsidian (https://obsidian.md) that will allow you to convert an open note to a Slack message.
 
 ## How to use
-Once installed, enabled and the settings configured (See below), this plugin will display a Slack icon in the ribbon. 
+Once installed, enabled and the settings configured (See below), this plugin will display a Slack icon in the ribbon.
+
+![Slack icon in Obsidian ribbon](/docs/SlackRibbonIcon.png)]
+
 Clicking on this button will open a new tab in your browser with the Slack message pre-filled with the 
 contents of the note.
 
@@ -23,4 +26,4 @@ https://app.slack.com/block-kit-builder/ABCD1234
 ## Funding and Support
 If you would like to support the development of this plugin, you can do so by buying me a coffee.  This will help me to continue to develop and maintain this plugin.  You can do this by clicking the link below:
 
-[![Buy me a coffee](https://github.com/NateCashmore/md-to-slack-plugin/blob/main/docs/bmc-button.svg)](https://www.buymeacoffee.com/nathan.cashmore)
+[![Buy me a coffee](/docs/bmc-button.svg)](https://www.buymeacoffee.com/nathan.cashmore)
