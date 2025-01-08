@@ -50,11 +50,35 @@ class MdToSlackSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
+		const descDocument = new DocumentFragment();
+		descDocument.appendText('URL associated with Slack Block Kit Builder.');
+		descDocument.append(document.createElement('br'));
+		descDocument.append(document.createElement('br'));
+		descDocument.appendText('You will need to goto ');
+
+		const a = document.createElement('a');
+		const linkText = document.createTextNode("https://app.slack.com/block-kit-builder");
+		a.appendChild(linkText);
+		a.title = "Slack Block Kit Builder";
+		a.href = "https://app.slack.com/block-kit-builder";
+		descDocument.appendChild(a);
+
+		descDocument.appendText(' and update this value with the generated ID:');
+		descDocument.append(document.createElement('br'));
+		descDocument.append(document.createElement('br'));
+
+		const i = document.createElement('I');
+		const italicText = document.createTextNode("e.g. https://app.slack.com/block-kit-builder/XXXXXXXX where XXXXXXXX is the ID.");
+		i.appendChild(italicText);
+		descDocument.appendChild(i);
+		descDocument.append(document.createElement('br'));
+		descDocument.append(document.createElement('br'));
+
+		descDocument.appendText('Slack will automatically generate this ID for you when you goto that URL.');
+
 		new Setting(containerEl)
 			.setName('Slack Block Kit Builder URL')
-			.setDesc('URL associated with Slack Block Kit Builder.  Please not you MUST goto https://app.slack.com/block-kit-builder and' +
-				' update this value with the generated ID ... e.g. https://app.slack.com/block-kit-builder/XXXXXXXX where XXXXXXXX is the ID.  ' +
-				'Slack will automatically generate this ID for you when you goto that URL.')
+			.setDesc(descDocument)
 			.addText(text => text
 				.setPlaceholder('https://app.slack.com/block-kit-builder/XXXXXXXX')
 				.setValue(this.plugin.settings.slackBlockKitBuilderURL)
