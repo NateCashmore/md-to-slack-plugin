@@ -1,4 +1,4 @@
-# Md To Slack Plugin
+# MD To Slack Plugin
 This is a plugin for Obsidian (https://obsidian.md) that will allow you to convert an open note to a Slack message.
 
 ## How to use

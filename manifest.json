@@ -1,9 +1,9 @@
 {
 	"id": "md-to-slack",
-	"name": "Md to Slack",
-	"version": "1.0.0",
+	"name": "MD to Slack",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Converts markdown messages to Slack Block Kit messages",
+	"description": "Converts Markdown messages to Slack Block Kit messages",
 	"author": "Nathan Cashmore",
 	"authorUrl": "https://www.staticvoid.co.uk/",
 	"fundingUrl": "https://buymeacoffee.com/nathan.cashmore",

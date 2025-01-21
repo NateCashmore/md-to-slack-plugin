@@ -14,7 +14,7 @@ export default class MdToSlack extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.addRibbonIcon('slack', 'MdToSlack', async (evt: MouseEvent) => {
+		this.addRibbonIcon('slack', 'MDToSlack', async (evt: MouseEvent) => {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);
 			if (view) {
 				const url = await Converter.convertMarkdownToSlack(this.settings, view.getDisplayText(), view.getViewData())
