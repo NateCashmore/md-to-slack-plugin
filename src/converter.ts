@@ -1,4 +1,4 @@
-const slackifyMarkdown = require('slackify-markdown');
+import slackifyMarkdown from "slackify-markdown";
 import {SlackBlock, SlackFormat} from "./types";
 
 export default class Converter {
@@ -10,7 +10,7 @@ export default class Converter {
     const resultA = result.replace(/['"]+/g, '')
     const resultB = resultA.replace(/^\s*$/g, '\n')
 
-    // Split the string into 3000 character chunks, the limit for slack md sections
+    // Split the string into 3000 character chunks, the limit for slack Markdown sections
     const splitResult = resultB.match(/[\s\S]{1,3000}/g) || [];
 
     let slackFormat : SlackFormat = {
